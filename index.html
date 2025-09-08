@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naren Reddy Ratnam - Personal Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Typed.js for typing effect -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #ccd6f6;
+        }
+        /* Custom styles for the scroll-triggered animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom accent color */
+        .accent-color {
+            color: #64ffda;
+        }
+        .bg-accent-color {
+            background-color: #64ffda;
+        }
+        .border-accent-color {
+            border-color: #64ffda;
+        }
+        .btn-primary {
+            @apply border border-accent-color text-accent-color rounded-md px-6 py-3 font-medium transition-colors duration-300 hover:bg-accent-color/10;
+        }
+        /* Navbar background on scroll */
+        .scrolled {
+            background-color: #0a192fde !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -10px rgba(2,12,27,0.7);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header / Navigation -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold accent-color">NR</a>
+            <ul class="hidden md:flex space-x-8 items-center">
+                <li><a href="#about" class="hover:accent-color transition-colors duration-300">About</a></li>
+                <li><a href="#experience" class="hover:accent-color transition-colors duration-300">Experience</a></li>
+                <li><a href="#skills" class="hover:accent-color transition-colors duration-300">Skills</a></li>
+                <li><a href="#projects" class="hover:accent-color transition-colors duration-300">Projects</a></li>
+                <li><a href="#contact" class="hover:accent-color transition-colors duration-300">Contact</a></li>
+            </ul>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden z-50">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+    </header>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#0a192f] transform -translate-x-full transition-transform duration-300 md:hidden z-40">
+        <ul class="flex flex-col items-center justify-center h-full space-y-8">
+            <li><a href="#about" class="text-2xl hover:accent-color transition-colors duration-300 mobile-link">About</a></li>
+            <li><a href="#experience" class="text-2xl hover:accent-color transition-colors duration-300 mobile-link">Experience</a></li>
+            <li><a href="#skills" class="text-2xl hover:accent-color transition-colors duration-300 mobile-link">Skills</a></li>
+            <li><a href="#projects" class="text-2xl hover:accent-color transition-colors duration-300 mobile-link">Projects</a></li>
+            <li><a href="#contact" class="text-2xl hover:accent-color transition-colors duration-300 mobile-link">Contact</a></li>
+        </ul>
+    </div>
+
+
+    <main class="container mx-auto px-6 md:px-12 lg:px-24">
+
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex flex-col justify-center items-start">
+            <h1 class="text-lg accent-color font-mono mb-4">Hi, my name is</h1>
+            <h2 class="text-4xl md:text-7xl font-bold text-slate-200">Naren Reddy Ratnam.</h2>
+            <h3 class="text-4xl md:text-7xl font-bold text-slate-400 mt-2">I build things for the web.</h3>
+            <p class="mt-6 max-w-xl text-slate-400">
+                I'm a <span id="typed-text" class="accent-color"></span> based in Jacksonville, FL, specializing in building exceptional digital experiences. I am a Computer Science student at the University of Florida with a passion for full-stack development.
+            </p>
+            <div class="mt-8 flex items-center space-x-4">
+                <a href="Narens_Resume.pdf" download class="btn-primary">Download CV</a>
+                <!-- Social Icons -->
+                <a href="https://github.com/narenratnam1" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                </a>
+                <a href="https://www.linkedin.com/in/narenratnam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="mailto:narenratnam1@gmail.com" aria-label="Email" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-slate-200 flex items-center mb-12">
+                <span class="accent-color font-mono mr-4 text-2xl">01.</span> About Me
+                <span class="flex-grow h-px bg-slate-700 ml-6"></span>
+            </h2>
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <div class="md:col-span-3 text-slate-400 space-y-4">
+                    <p>Hello! I'm Naren, a Computer Science student at the University of Florida with a minor in Statistics. I have a strong passion for creating dynamic and user-friendly web applications.</p>
+                    <p>I have experience as a Software Engineering Intern where I engineered a user authentication module for over 10,000 users, and as a Data Analyst Intern, where I authored a comprehensive data report for the City of Gainesville.</p>
+                    <p>My goal is to leverage my skills in full-stack development to build innovative and impactful digital solutions.</p>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="relative group w-full max-w-sm mx-auto">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-pink-500 to-cyan-500 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        <img src="https://placehold.co/500x500/0a192f/ccd6f6?text=Your+Image" alt="Naren Reddy Ratnam" class="relative w-full rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-slate-200 flex items-center mb-12">
+                <span class="accent-color font-mono mr-4 text-2xl">02.</span> Where I've Worked
+                <span class="flex-grow h-px bg-slate-700 ml-6"></span>
+            </h2>
+            <div class="max-w-3xl">
+                 <!-- Job 1 -->
+                <div class="relative pl-8 sm:pl-12 py-4 group">
+                    <div class="absolute left-0 top-0 h-full w-0.5 bg-slate-700"></div>
+                    <div class="absolute left-0 top-4 h-3 w-3 rounded-full bg-slate-700 group-hover:bg-accent-color transition-colors duration-300 -translate-x-[5px]"></div>
+                    <h3 class="text-xl font-semibold text-slate-200">Data Analyst Intern <span class="accent-color">@ City of Gainesville</span></h3>
+                    <p class="font-mono text-sm text-slate-400 mb-2">May 2025 - August 2025</p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2 marker:accent-color">
+                        <li>Authored a comprehensive data report analyzing the demographic, economic, and social characteristics of the immigrant population.</li>
+                        <li>Sourced, cleaned, and synthesized complex datasets from the U.S. Census Bureau to evaluate population growth and labor market trends.</li>
+                        <li>Analyzed key economic indicators to quantify the community's fiscal impact.</li>
+                    </ul>
+                </div>
+                <!-- Job 2 -->
+                <div class="relative pl-8 sm:pl-12 py-4 group">
+                    <div class="absolute left-0 top-0 h-full w-0.5 bg-slate-700"></div>
+                    <div class="absolute left-0 top-4 h-3 w-3 rounded-full bg-slate-700 group-hover:bg-accent-color transition-colors duration-300 -translate-x-[5px]"></div>
+                    <h3 class="text-xl font-semibold text-slate-200">Software Engineering Intern <span class="accent-color">@ Victorian Solutions Limited</span></h3>
+                    <p class="font-mono text-sm text-slate-400 mb-2">May 2024 - August 2024</p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2 marker:accent-color">
+                        <li>Engineered and launched a new user authentication module using Node.js and JWT, improving security for over 10,000 active users.</li>
+                        <li>Collaborated with an agile team to refactor a key API endpoint, decreasing server response time by 40%.</li>
+                        <li>Developed a suite of automated tests using Jest and Cypress, increasing code coverage by 30%.</li>
+                    </ul>
+                </div>
+                <!-- Job 3 -->
+                <div class="relative pl-8 sm:pl-12 py-4 group">
+                    <div class="absolute left-0 top-0 h-full w-0.5 bg-slate-700"></div>
+                    <div class="absolute left-0 top-4 h-3 w-3 rounded-full bg-slate-700 group-hover:bg-accent-color transition-colors duration-300 -translate-x-[5px]"></div>
+                    <h3 class="text-xl font-semibold text-slate-200">Undergraduate Student Researcher <span class="accent-color">@ University of Florida</span></h3>
+                    <p class="font-mono text-sm text-slate-400 mb-2">January 2022 - May 2022</p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2 marker:accent-color">
+                        <li>Utilized Unix to manage experimental data, analyzing it to identify key correlations between chemical reactions to improve fuel quality.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-slate-200 flex items-center mb-12">
+                <span class="accent-color font-mono mr-4 text-2xl">03.</span> Skills
+                <span class="flex-grow h-px bg-slate-700 ml-6"></span>
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#F7DF1E]" fill="currentColor" viewBox="0 0 32 32"><path d="M24.22 26.128h-5.232l-2.074-4.045h-4.322l-2.074 4.045h-5.232l8.814-16.128h1.49zm-8.223-5.597h3.834l-1.917-3.876zM0 0v32h32v-32z"/></svg>
+                    <span class="font-semibold mt-2">JavaScript</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#3776AB]" fill="currentColor" viewBox="0 0 32 32"><path d="M16 32a16 16 0 1 1 16-16 16 16 0 0 1-16 16zM12.2 11.2h3.4l-1 5.6h2.8l-4.4 7.6 1.4-6h-2.8z"/><path fill="#FFD43B" d="M20.6 20.8h-3.4l1-5.6h-2.8l4.4-7.6-1.4 6h2.8z"/></svg>
+                    <span class="font-semibold mt-2">Python</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#00599C]" fill="currentColor" viewBox="0 0 32 32">
+                        <path d="M18.8 10.2c-1.3-1-2.9-1.5-4.8-1.5-2.4 0-4.4.8-6 2.5-1.5 1.7-2.3 3.8-2.3 6.4 0 2.6 0.7 4.8 2.3 6.4s3.5 2.5 6 2.5c1.9 0 3.5-0.5 4.8-1.5l-0.6-2.2c-1.1 0.8-2.3 1.2-3.6 1.2-2.1 0-3.8-0.7-5-2.2s-1.8-3.4-1.8-5.7c0-2.3 0.6-4.2 1.8-5.7s2.9-2.2 5-2.2c1.4 0 2.6 0.4 3.6 1.2l0.6-2.2zM26 13h-2v-2h-2.5v2h-2v2.5h2v2h2.5v-2h2zM26 21.5h-2v-2h-2.5v2h-2v2.5h2v2h2.5v-2h2z"/>
+                    </svg>
+                    <span class="font-semibold mt-2">C++</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#007396]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12.332 18.093c-.43.246-1.003.38-1.54.38-.69 0-1.28-.15-1.75-.46-.51-.33-.76-1-.76-1.82 0-.49.16-.9.46-1.23.3-.33.7-.49 1.19-.49.61 0 1.09.18 1.41.53.32.35.48.79.48 1.31v.01c.02-.57.21-1.04.53-1.41.32-.37.75-.56 1.3-.56.55 0 .96.18 1.25.53.29.35.44.81.44 1.36 0 .55-.16.99-.47 1.33-.31.34-.73.51-1.25.51-.43 0-.8-.11-1.11-.35v.29c.04.45.22.8.53 1.06.31.26.71.39 1.2.39.61 0 1.12-.14 1.51-.41l.52 1.1c-.49.33-1.1.5-1.84.5-1.33 0-2.32-.45-2.99-1.35-.39-.51-.64-1.14-.64-1.87 0-.78.25-1.43.76-1.95.51-.52 1.15-.78 1.95-.78s1.43.26 1.95.78c.51.52.76 1.17.76 1.95 0 .7-.24 1.29-.71 1.77-.47.48-1.06.72-1.77.72-.55 0-1.06-.1-1.53-.29l-.3 2.4zM9.812 21.993c.75 1.24 1.87 1.86 3.36 1.86.88 0 1.69-.22 2.42-.65l.65 1.38c-1 .61-2.15.91-3.48.91-1.18 0-2.24-.31-3.19-.94s-1.7-1.5-2.19-2.66c-.49-1.14-.73-2.46-.73-3.95V7h6.92v1.71h-5.07v8.55c0 .83.12 1.5.35 1.98.23.48.61.89 1.12 1.21z" />
+                    </svg>
+                    <span class="font-semibold mt-2">Java</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#61DAFB]" fill="currentColor" viewBox="0 0 32 32"><path d="M31.547 14.653l-2.92-1.854a.267.267 0 0 0-.34.104l-1.373 2.527a.266.266 0 0 1-.34.104l-2.92-1.854a.267.267 0 0 1-.105-.338l1.374-2.527a.267.267 0 0 0-.104-.34L22.02.998a.267.267 0 0 0-.34.104l-1.373 2.527a.267.267 0 0 1-.34.104l-2.92-1.854a.266.266 0 0 0-.338.105L15.334 4.51a.267.267 0 0 1-.34.104l-2.92-1.854a.267.267 0 0 0-.34.104L10.36 5.4a.267.267 0 0 1-.34.104l-2.92-1.854a.267.267 0 0 0-.338.105l-1.373 2.527a.267.267 0 0 0 .105.338l2.92 1.854a.267.267 0 0 0 .34-.104l1.373-2.527a.266.266 0 0 1 .34-.104l2.92 1.854a.267.267 0 0 1 .105.338l-1.374 2.527a.267.267 0 0 0 .104.34l2.798 1.777a.267.267 0 0 0 .34-.104l1.373-2.527a.267.267 0 0 1 .34-.104l2.92 1.854a.266.266 0 0 0 .338-.105l1.373-2.527a.267.267 0 0 0-.105-.338zM16 4.333c-3.213 0-6.227 1.253-8.487 3.513S4 12.787 4 16s1.253 6.227 3.513 8.487S12.787 28 16 28s6.227-1.253 8.487-3.513S28 19.213 28 16s-1.253-6.227-3.513-8.487S19.213 4 16 4.333zm0 21.334c-5.893 0-10.667-4.773-10.667-10.667S10.107 5.333 16 5.333 26.667 10.107 26.667 16 21.893 25.667 16 25.667z"/></svg>
+                    <span class="font-semibold mt-2">React</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#43853d]" fill="currentColor" viewBox="0 0 24 24"><path d="M12.01,21.49L2.5,12L12.01,2.51l8.08,8.08c1.09,1.09,1.09,2.87,0,3.96l-3.96,3.96c-1.09,1.09-2.87,1.09-3.96,0l-0.01-0.01L12.01,21.49z M12.01,2.51L2.5,12l9.51,9.51l3.54-3.54l-8.08-8.08l8.08-8.08L12.01,2.51z"/></svg>
+                    <span class="font-semibold mt-2">Node.js</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                     <svg class="w-16 h-16 mb-2" fill="currentColor" viewBox="0 0 128 128"><path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64 64-28.7 64-64S99.3 0 64 0zm0 120C33.2 120 8 94.8 8 64S33.2 8 64 8s56 25.2 56 56-25.2 56-56 56z"/><path d="M91.5 64L52.8 96.5V31.5L91.5 64z"/></svg>
+                    <span class="font-semibold mt-2">Next.js</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#38BDF8]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2.06 14.53c-1.03 0-1.89-.37-2.61-1.11a3.67 3.67 0 0 1-1.07-2.67c0-1.07.36-1.99 1.07-2.71s1.58-1.08 2.61-1.08c1.02 0 1.88.36 2.59 1.08s1.07 1.63 1.07 2.71c0 1.08-.36 2-1.07 2.67a3.65 3.65 0 0 1-2.59 1.11zm8.01 0c-1.03 0-1.89-.37-2.61-1.11a3.67 3.67 0 0 1-1.07-2.67c0-1.07.36-1.99 1.07-2.71s1.58-1.08 2.61-1.08c1.02 0 1.88.36 2.59 1.08s1.07 1.63 1.07 2.71c0 1.08-.36 2-1.07 2.67a3.65 3.65 0 0 1-2.59 1.11z"/></svg>
+                    <span class="font-semibold mt-2">Tailwind</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#DE3436]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm1 14h-2v-6h2v6zm0 2h-2v-2h2v2z"/></svg>
+                    <span class="font-semibold mt-2">Git</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#4695EB]" fill="currentColor" viewBox="0 0 24 24"><path d="M21.35,8.65c-1.39-4.26-5.3-7.15-9.85-7.15c-5.52,0-10,4.48-10,10c0,2.02,0.6,3.91,1.64,5.49L1.45,22.55l5.59-1.45 C8.59,21.8,10.24,22,12,22c5.52,0,10-4.48,10-10C22,10.76,21.76,9.67,21.35,8.65z M12,20c-1.5,0-2.92-0.42-4.15-1.16l-3,0.78 l0.79-2.92C4.92,15.46,4.5,14,4.5,12.5c0-4.14,3.36-7.5,7.5-7.5s7.5,3.36,7.5,7.5S16.14,20,12,20z"/></svg>
+                    <span class="font-semibold mt-2">GCP</span>
+                </div>
+                <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#38B2AC]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.59L5.41 11.5l1.41-1.41L11 14.17l5.18-5.18 1.41 1.41L11 16.59z"/></svg>
+                    <span class="font-semibold mt-2">Tableau</span>
+                </div>
+                 <div class="flex flex-col items-center p-4 rounded-lg bg-slate-800/50">
+                    <svg class="w-16 h-16 mb-2 text-[#0064a5]" fill="currentColor" viewBox="0 0 32 32"><path d="M25.17,6.83H6.83A4.83,4.83,0,0,0,2,11.67V20.33a4.83,4.83,0,0,0,4.83,4.84H25.17a4.84,4.84,0,0,0,4.83-4.84V11.67A4.84,4.84,0,0,0,25.17,6.83Zm-1,13.5a3.84,3.84,0,0,1-3.83,3.84H7.83A3.84,3.84,0,0,1,4,20.33V11.67A3.84,3.84,0,0,1,7.83,7.83H20.33a3.84,3.84,0,0,1,3.84,3.84Z"/><path d="M8,10.5v11l9.8-5.5Z"/></svg>
+                    <span class="font-semibold mt-2">SQL</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 fade-in-section">
+            <h2 class="text-3xl font-bold text-slate-200 flex items-center mb-12">
+                <span class="accent-color font-mono mr-4 text-2xl">04.</span> Things I've Built
+                <span class="flex-grow h-px bg-slate-700 ml-6"></span>
+            </h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div class="bg-slate-800/70 rounded-lg shadow-lg overflow-hidden group transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+                    <img src="https://placehold.co/600x400/0a192f/64ffda?text=Booking+System" alt="Custom Booking System Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-slate-200 mb-2">Custom Booking System</h3>
+                        <p class="text-slate-400 flex-grow">A full-stack booking application for a client to manage availability and automate appointment scheduling, with automated email notifications.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">React</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">JavaScript</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">MongoDB</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Tailwind CSS</span>
+                        </div>
+                        <div class="mt-4 flex items-center space-x-4">
+                            <a href="https://github.com/narenratnam1/Aryan-s-Website" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="https://superb-pasca-247dd4.netlify.app/" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-slate-800/70 rounded-lg shadow-lg overflow-hidden group transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+                    <img src="https://placehold.co/600x400/0a192f/64ffda?text=Stock+Analyzer" alt="Real-Time Stock Sentiment Analyzer Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-slate-200 mb-2">Real-Time Stock Sentiment Analyzer</h3>
+                        <p class="text-slate-400 flex-grow">An application that ingests real-time tweets for stock tickers, performs sentiment analysis, and visualizes the data on a dynamic dashboard.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Flask</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Tweepy</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">NLTK</span>
+                             <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Chart.js</span>
+                        </div>
+                        <div class="mt-4 flex items-center space-x-4">
+                            <a href="https://github.com/narenratnam1/stock-sentiment-analyzer" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="https://naren-sentiment-analyzer.onrender.com/" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-slate-800/70 rounded-lg shadow-lg overflow-hidden group transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+                    <img src="https://placehold.co/600x400/0a192f/64ffda?text=Job+Tracker" alt="Job Tracker Project" class="w-full h-48 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-slate-200 mb-2">Job Tracker Application</h3>
+                        <p class="text-slate-400 flex-grow">A full-stack application to help users track and manage their job search process. Features include adding applications, updating statuses, and storing key details, powered by a real-time database.</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">React</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Firebase</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Node.js</span>
+                            <span class="text-xs font-mono accent-color bg-accent-color/10 px-2 py-1 rounded">Tailwind CSS</span>
+                        </div>
+                        <div class="mt-4 flex items-center space-x-4">
+                            <a href="https://github.com/narenratnam1/job-tracker-backend" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+                            <a href="https://job-tracker-frontend-sigma.vercel.app/" class="text-slate-400 hover:accent-color transition-colors duration-300"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center fade-in-section">
+            <h2 class="text-3xl font-bold text-slate-200 mb-4">
+                 <span class="accent-color font-mono mr-4 text-2xl">05.</span> What's Next?
+            </h2>
+            <h3 class="text-4xl md:text-5xl font-bold text-slate-200">Get In Touch</h3>
+            <p class="max-w-xl mx-auto mt-6 text-slate-400">
+                I'm currently open to new opportunities and my inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            <a href="mailto:narenratnam1@gmail.com" class="btn-primary inline-block mt-8">
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center">
+        <p class="text-slate-500 text-sm font-mono">Designed & Built by Naren Reddy Ratnam</p>
+        <div class="flex items-center justify-center space-x-4 mt-4 md:hidden">
+             <!-- Social Icons for Mobile Footer -->
+            <a href="https://github.com/narenratnam1" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/narenratnam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4"cy="4" r="2"></circle></svg>
+            </a>
+            <a href="mailto:narenratnam1@gmail.com" aria-label="Email" class="text-slate-400 hover:accent-color transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Typing effect
+            new Typed('#typed-text', {
+                strings: ['Software Engineer', 'Full Stack Developer', 'Data Analyst'],
+                typeSpeed: 50,
+                backSpeed: 30,
+                loop: true,
+                backDelay: 2000,
+            });
+
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Intersection Observer for fade-in animations
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.15
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            const toggleMenu = () => {
+                mobileMenu.classList.toggle('-translate-x-full');
+                // Simple hamburger to X animation
+                mobileMenuBtn.classList.toggle('is-active');
+                if (mobileMenuBtn.classList.contains('is-active')) {
+                    mobileMenuBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>`;
+                } else {
+                    mobileMenuBtn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>`;
+                }
+            };
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
